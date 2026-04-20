@@ -160,59 +160,154 @@
           </div>
         </div>
 
-        <div v-else-if="activeArea" :key="activeArea.id" class="card">
-          <div class="card-head">
-            <div>
-              <div class="card-title">Индекс экологического стресса</div>
-              <div class="card-subtitle">{{ activeArea.name }}</div>
+        <template v-else-if="activeArea">
+          <div :key="activeArea.id" class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Индекс экологического стресса</div>
+                <div class="card-subtitle">{{ activeArea.name }}</div>
+              </div>
+
+              <div class="badge" :class="activeArea.level.className">
+                {{ activeArea.level.label }}
+              </div>
             </div>
 
-            <div class="badge" :class="activeArea.level.className">
-              {{ activeArea.level.label }}
+            <div class="index-box" :class="activeArea.level.className">
+              <div class="index-number">{{ activeArea.index }}</div>
+
+              <div class="index-meta">
+                <strong>{{ activeArea.level.label }}</strong>
+                <span>по выбранному району</span>
+              </div>
+            </div>
+
+            <div class="formula">
+              I = (air × 0.40 + noise × 0.20 + traffic × 0.20 + (10 - greenZones) ×
+              0.20) × 10
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini-card">
+                <span>Воздух 💨</span>
+                <strong>{{ activeArea.factors_air }}/10</strong>
+              </div>
+
+              <div class="mini-card">
+                <span>Шум 🔊</span>
+                <strong>{{ activeArea.factors_noise }}/10</strong>
+              </div>
+
+              <div class="mini-card">
+                <span>Транспорт 🚌</span>
+                <strong>{{ activeArea.factors_traffic }}/10</strong>
+              </div>
+
+              <div class="mini-card">
+                <span>Зелёные зоны 🌳</span>
+                <strong>{{ activeArea.factors_greenZones }}/10</strong>
+              </div>
+            </div>
+
+            <div class="coords-card">
+              <span>Координаты 🗺️</span>
+              <strong>{{ activeArea.lat }}, {{ activeArea.lan }}</strong>
             </div>
           </div>
 
-          <div class="index-box" :class="activeArea.level.className">
-            <div class="index-number">{{ activeArea.index }}</div>
+          <div v-if="currentNoiseLevelInfo" class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Влияние шума</div>
+                <div class="card-subtitle">{{ currentNoiseLevelInfo.title }}</div>
+              </div>
 
-            <div class="index-meta">
-              <strong>{{ activeArea.level.label }}</strong>
-              <span>по выбранному району</span>
+              <div class="badge" :class="activeArea.level.className">
+                {{ activeArea.level.label }}
+              </div>
             </div>
+
+            <details class="spoiler-block" open>
+              <summary class="spoiler-summary">
+                Риски влияния на организм
+              </summary>
+
+              <div class="spoiler-content">
+                <div
+                  v-for="(item, idx) in currentNoiseLevelInfo.risks_body"
+                  :key="`body-${idx}`"
+                  class="gray-item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+            </details>
+
+            <details class="spoiler-block">
+              <summary class="spoiler-summary">
+                Риски влияния на психологию
+              </summary>
+
+              <div class="spoiler-content">
+                <div
+                  v-for="(item, idx) in currentNoiseLevelInfo.risks_psychology"
+                  :key="`psychology-${idx}`"
+                  class="gray-item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+            </details>
+
+            <details class="spoiler-block">
+              <summary class="spoiler-summary">
+                Риски влияния на социальную жизнь
+              </summary>
+
+              <div class="spoiler-content">
+                <div
+                  v-for="(item, idx) in currentNoiseLevelInfo.risks_social"
+                  :key="`social-${idx}`"
+                  class="gray-item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+            </details>
+
+            <details class="spoiler-block">
+              <summary class="spoiler-summary">
+                Как стресс влияет
+              </summary>
+
+              <div class="spoiler-content">
+                <div
+                  v-for="(item, idx) in currentNoiseLevelInfo.stress_effect"
+                  :key="`stress-${idx}`"
+                  class="gray-item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+            </details>
+
+            <details class="spoiler-block">
+              <summary class="spoiler-summary">
+                Методы профилактики
+              </summary>
+
+              <div class="spoiler-content">
+                <div
+                  v-for="(item, idx) in currentNoiseLevelInfo.prevention"
+                  :key="`prevention-${idx}`"
+                  class="gray-item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+            </details>
           </div>
-
-          <div class="formula">
-            I = (air × 0.40 + noise × 0.20 + traffic × 0.20 + (10 - greenZones) ×
-            0.20) × 10
-          </div>
-
-          <div class="mini-grid">
-            <div class="mini-card">
-              <span>Воздух 💨</span>
-              <strong>{{ activeArea.factors_air }}/10</strong>
-            </div>
-
-            <div class="mini-card">
-              <span>Шум 🔊</span>
-              <strong>{{ activeArea.factors_noise }}/10</strong>
-            </div>
-
-            <div class="mini-card">
-              <span>Транспорт 🚌</span>
-              <strong>{{ activeArea.factors_traffic }}/10</strong>
-            </div>
-
-            <div class="mini-card">
-              <span>Зелёные зоны 🌳</span>
-              <strong>{{ activeArea.factors_greenZones }}/10</strong>
-            </div>
-          </div>
-
-          <div class="coords-card">
-            <span>Координаты 🗺️</span>
-            <strong>{{ activeArea.lat }}, {{ activeArea.lan }}</strong>
-          </div>
-        </div>
+        </template>
       </div>
     </aside>
 
@@ -266,6 +361,7 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-providers'
 import areas from '../../data/temirtau-areas.json'
+import noiseLevels from '../../data/noise-levels.json'
 
 const currentCity = {
   id: 'temirtau',
@@ -319,6 +415,12 @@ const areaRadiusLabel = computed(() => {
   }
 
   return `${areaRadius.value} м`
+})
+
+const currentNoiseLevelInfo = computed(() => {
+  const levelKey = activeArea.value?.level?.className
+  if (!levelKey) return null
+  return noiseLevels[levelKey] ?? null
 })
 
 const syncCssColors = () => {
@@ -379,9 +481,7 @@ const filteredAreas = computed(() => {
   const query = normalizedSearch.value
   if (!query) return []
 
-  return areas.filter((area) =>
-    area.name.toLowerCase().includes(query)
-  )
+  return areas.filter((area) => area.name.toLowerCase().includes(query))
 })
 
 const visibleMultipleAreas = computed(() => {
@@ -405,7 +505,6 @@ const highlightMatch = (text = '') => {
 
 const setActiveAreaById = (id) => {
   selectedAreaId.value = Number(id)
-
   const rawArea = areas.find((item) => item.id === selectedAreaId.value) ?? null
   activeArea.value = buildArea(rawArea)
 }
@@ -597,9 +696,9 @@ onBeforeUnmount(() => {
   --color-low: #d9feb8;
   --color-low-font: hsl(92, 97%, 20%);
   --color-low-soft: hsl(92, 97%, 70%);
-  --color-moderate: #FFFF99;
+  --color-moderate: #ffff99;
   --color-moderate-font: hsl(60, 100%, 20%);
-  --color-high: #FCBCD0;
+  --color-high: #fcbcd0;
   --color-high-font: hsl(341, 91%, 20%);
   --color-critical: #ffb69f;
   --color-critical-font: hsl(14, 100%, 25%);
@@ -1025,7 +1124,7 @@ onBeforeUnmount(() => {
 
 .index-box.moderate {
   background: var(--color-moderate);
-  color: var(--color-moderate-font);;
+  color: var(--color-moderate-font);
 }
 
 .index-box.high {
@@ -1094,6 +1193,64 @@ onBeforeUnmount(() => {
 
 .coords-card {
   margin-top: 12px;
+}
+
+.spoiler-block {
+  margin-top: 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 16px;
+  background: var(--color-surface-soft);
+  overflow: hidden;
+}
+
+.spoiler-summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 14px 44px 14px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  list-style: none;
+  user-select: none;
+}
+
+.spoiler-summary::-webkit-details-marker {
+  display: none;
+}
+
+.spoiler-summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  transition: transform 0.18s ease;
+}
+
+.spoiler-block[open] .spoiler-summary::after {
+  content: '−';
+}
+
+.spoiler-content {
+  padding: 0 14px 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.gray-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #eef2f7;
+  border: 1px solid #e5e7eb;
+  color: var(--color-text-main);
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .map-section {
