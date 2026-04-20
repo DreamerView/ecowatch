@@ -1,0 +1,23 @@
+{
+  "name": "eco-ink",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "leaflet": "^1.9.4",
+    "leaflet-providers": "^3.0.0",
+    "lowdb": "^7.0.1",
+    "vue": "^3.5.32",
+    "vue-router": "^5.0.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.5",
+    "vite": "^8.0.4"
+  }
+}
