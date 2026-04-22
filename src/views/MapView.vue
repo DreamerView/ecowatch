@@ -70,13 +70,13 @@
               type="range"
               class="radius-range"
               min="200"
-              max="3000"
+              max="500"
               step="100"
             />
 
             <div class="radius-scale">
               <span>200 м</span>
-              <span>3 км</span>
+              <span>500 м</span>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@
             <div class="card-head">
               <div>
                 <div class="card-title">Индекс экологического стресса</div>
-                <div class="card-subtitle">{{ activeArea.name }}</div>
+                <p class="card-subtitle">{{ activeArea.name }}</p>
               </div>
 
               <div class="badge" :class="activeArea.level.className">
@@ -218,8 +218,7 @@
           <div v-if="currentNoiseLevelInfo" class="card">
             <div class="card-head">
               <div>
-                <div class="card-title">Влияние шума</div>
-                <div class="card-subtitle">{{ currentNoiseLevelInfo.title }}</div>
+                <div class="card-subtitle">Влияние шума</div>
               </div>
 
               <div class="badge" :class="activeArea.level.className">
@@ -367,7 +366,7 @@ const currentCity = {
   id: 'temirtau',
   name: 'Темиртау',
   center: [50.0549, 72.9646],
-  zoom: 12,
+  zoom: 14
 }
 
 const selectedAreaId = ref(areas[0]?.id ?? null)
@@ -375,7 +374,7 @@ const activeArea = ref(null)
 const isSidebarVisible = ref(true)
 const searchQuery = ref('')
 const displayMode = ref('single')
-const areaRadius = ref(500)
+const areaRadius = ref(300)
 const multipleLevelFilter = ref('all')
 
 const pageRef = ref(null)
@@ -558,7 +557,7 @@ const renderAreas = () => {
 const focusArea = () => {
   if (!mapInstance || !activeArea.value) return
 
-  mapInstance.flyTo(getAreaLatLng(activeArea.value), 13, {
+  mapInstance.flyTo(getAreaLatLng(activeArea.value), 14, {
     duration: 0.8,
   })
 }
@@ -627,6 +626,11 @@ watch(multipleLevelFilter, () => {
   }
 })
 
+const cityBounds = [
+  [50.00, 72.90], // низ левый (пример)
+  [50.10, 73.05], // верх правый
+]
+
 onMounted(async () => {
   setActiveAreaById(areas[0]?.id)
 
@@ -675,7 +679,8 @@ onBeforeUnmount(() => {
   --color-text-light: #9ca3af;
   --color-white: #ffffff;
 
-  --color-primary: #adc3f4;
+  --color-primary: #92a8b3;
+  --color-primary-font:#fff;
   --color-primary-hover: #eff6ff;
   --color-primary-border: #93c5fd;
   --color-primary-ring: rgba(37, 99, 235, 0.08);
@@ -693,20 +698,20 @@ onBeforeUnmount(() => {
 
   --color-mark-bg: #fde68a;
 
-  --color-low: #d9feb8;
-  --color-low-font: hsl(92, 97%, 20%);
-  --color-low-soft: hsl(92, 97%, 70%);
-  --color-moderate: #ffff99;
-  --color-moderate-font: hsl(60, 100%, 20%);
-  --color-high: #fcbcd0;
-  --color-high-font: hsl(341, 91%, 20%);
-  --color-critical: #ffb69f;
-  --color-critical-font: hsl(14, 100%, 25%);
+  --color-low: #8aa282;
+  --color-low-font: #fff;
+  --color-low-soft: #8aa282;
+  --color-moderate: #d8a75f;
+  --color-moderate-font: #fff;
+  --color-high: #bc8f8f;
+  --color-high-font: #fff5ee;
+  --color-critical: #ff7779;
+  --color-critical-font: #fff;
 
-  --color-low-polygon: hsl(92, 97%, 50%);
-  --color-moderate-polygon: hsl(65, 100%, 50%);
-  --color-high-polygon: hsl(341, 91%, 70%);
-  --color-critical-polygon: hsl(14, 100%, 50%);
+  --color-low-polygon: hsl(91, 49%, 55%);
+  --color-moderate-polygon: #d8a75f;
+  --color-high-polygon: hsl(0, 25%, 60%);
+  --color-critical-polygon: #ff7779;
 
   --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
   --shadow-card: 0 8px 24px rgba(15, 23, 42, 0.04);
@@ -785,7 +790,7 @@ onBeforeUnmount(() => {
   font-size: 14px;
   font-weight: 600;
   background: var(--color-primary);
-  color: #000;
+  color: var(--color-primary-font);
 }
 
 .sidebar-show-btn {
@@ -803,24 +808,28 @@ onBeforeUnmount(() => {
   padding: 16px;
   margin-top: 16px;
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
 }
 
 .card-head {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
 }
 
 .card-title {
   font-size: 12px;
+  margin-bottom:0.5rem;
   color: var(--color-text-muted);
 }
 
 .card-subtitle {
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .badge {
@@ -853,7 +862,6 @@ onBeforeUnmount(() => {
 
 .label {
   display: block;
-  margin-bottom: 8px;
   font-size: 14px;
   font-weight: 600;
 }
@@ -884,11 +892,14 @@ onBeforeUnmount(() => {
 .mode-btn.active {
   border-color: var(--color-primary);
   background: var(--color-primary);
-  color: #000;
+  color: var(--color-primary-font)
 }
 
 .level-filter-box {
   margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
 }
 
 .level-filter-select {
@@ -923,6 +934,7 @@ onBeforeUnmount(() => {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 10px;
+  margin-bottom:1rem;
 }
 
 .radius-label {
@@ -1173,7 +1185,7 @@ onBeforeUnmount(() => {
 .mini-card,
 .coords-card {
   display: grid;
-  gap: 4px;
+  gap: 0.7rem;
   padding: 12px;
   border-radius: 14px;
   background: var(--color-surface-soft);
@@ -1182,13 +1194,15 @@ onBeforeUnmount(() => {
 
 .mini-card span,
 .coords-card span {
-  font-size: 13px;
+  font-size: 12px;
+  text-align: center;
   color: var(--color-text-muted);
 }
 
 .mini-card strong,
 .coords-card strong {
   font-size: 18px;
+  text-align: center;
 }
 
 .coords-card {
@@ -1206,7 +1220,6 @@ onBeforeUnmount(() => {
 .spoiler-summary {
   position: relative;
   display: flex;
-  align-items: center;
   min-height: 52px;
   padding: 14px 44px 14px 16px;
   cursor: pointer;
@@ -1315,7 +1328,7 @@ onBeforeUnmount(() => {
 
 .overlay-card span {
   color: var(--color-text-muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 :deep(.leaflet-control-attribution) {
