@@ -411,10 +411,10 @@
     "name": "9-й микрорайон",
     "lat": 50.042222,
     "lan": 72.973889,
-    "factors_air": "8",
-    "factors_noise": "5",
-    "factors_traffic": "4",
-    "factors_greenZones": "2",
+    "factors_air": "10",
+    "factors_noise": "9",
+    "factors_traffic": "8",
+    "factors_greenZones": "0",
     "coords": ""
   },
   {
@@ -444,10 +444,10 @@
     "name": "бул. Независимости",
     "lat": 50.056667,
     "lan": 72.953889,
-    "factors_air": "7",
-    "factors_noise": "8",
-    "factors_traffic": "9",
-    "factors_greenZones": "7",
+    "factors_air": "9",
+    "factors_noise": "3",
+    "factors_traffic": "3",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -741,10 +741,10 @@
     "name": "ул. Панфилова",
     "lat": 50.084444,
     "lan": 72.902778,
-    "factors_air": "6",
-    "factors_noise": "5",
-    "factors_traffic": "8",
-    "factors_greenZones": "6",
+    "factors_air": "8",
+    "factors_noise": "2",
+    "factors_traffic": "2",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -763,10 +763,10 @@
     "name": "ул. Победы",
     "lat": 50.055833,
     "lan": 72.996667,
-    "factors_air": "4",
-    "factors_noise": "7",
-    "factors_traffic": "8",
-    "factors_greenZones": "5",
+    "factors_air": "1",
+    "factors_noise": "2",
+    "factors_traffic": "2",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -774,10 +774,10 @@
     "name": "ул. Полетаева",
     "lat": 50.049444,
     "lan": 72.939722,
-    "factors_air": "5",
-    "factors_noise": "4",
-    "factors_traffic": "3",
-    "factors_greenZones": "5",
+    "factors_air": "2",
+    "factors_noise": "2",
+    "factors_traffic": "2",
+    "factors_greenZones": "7",
     "coords": ""
   },
   {
@@ -906,10 +906,10 @@
     "name": "квартал 6А",
     "lat": 50.056944,
     "lan": 72.933333,
-    "factors_air": "5",
-    "factors_noise": "4",
+    "factors_air": "2",
+    "factors_noise": "2",
     "factors_traffic": "3",
-    "factors_greenZones": "5",
+    "factors_greenZones": "8",
     "coords": ""
   },
   {
@@ -939,10 +939,10 @@
     "name": "ул. Турмаганбетова",
     "lat": 50.085,
     "lan": 72.91,
-    "factors_air": "3",
-    "factors_noise": "3",
-    "factors_traffic": "2",
-    "factors_greenZones": "8",
+    "factors_air": "9",
+    "factors_noise": "9",
+    "factors_traffic": "10",
+    "factors_greenZones": "1",
     "coords": ""
   },
   {
@@ -1038,10 +1038,10 @@
     "name": "ул. Чайковского",
     "lat": 50.062778,
     "lan": 72.989444,
-    "factors_air": "4",
-    "factors_noise": "5",
-    "factors_traffic": "5",
-    "factors_greenZones": "8",
+    "factors_air": "7",
+    "factors_noise": "2",
+    "factors_traffic": "2",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -1060,7 +1060,7 @@
     "name": "М-36",
     "lat": 51.334444,
     "lan": 70.096667,
-    "factors_air": "3",
+    "factors_air": "9",
     "factors_noise": "9",
     "factors_traffic": "9",
     "factors_greenZones": "1",
@@ -1115,9 +1115,9 @@
     "name": "Мартеновская ул.",
     "lat": 50.107222,
     "lan": 72.896944,
-    "factors_air": "2",
+    "factors_air": "1",
     "factors_noise": "8",
-    "factors_traffic": "6",
+    "factors_traffic": "9",
     "factors_greenZones": "1",
     "coords": ""
   },
@@ -1390,10 +1390,10 @@
     "name": "Прокатная ул.",
     "lat": 50.106667,
     "lan": 72.900278,
-    "factors_air": "6",
-    "factors_noise": "8",
-    "factors_traffic": "9",
-    "factors_greenZones": "5",
+    "factors_air": "9",
+    "factors_noise": "10",
+    "factors_traffic": "8",
+    "factors_greenZones": "0",
     "coords": ""
   },
   {
@@ -1401,10 +1401,10 @@
     "name": "просп. Бауыржана Момышулы",
     "lat": 50.053056,
     "lan": 72.9775,
-    "factors_air": "4",
-    "factors_noise": "10",
-    "factors_traffic": "10",
-    "factors_greenZones": "4",
+    "factors_air": "7",
+    "factors_noise": "7",
+    "factors_traffic": "8",
+    "factors_greenZones": "6",
     "coords": ""
   },
   {
@@ -1412,10 +1412,10 @@
     "name": "просп. Металлургов",
     "lat": 50.050278,
     "lan": 72.965556,
-    "factors_air": "3",
-    "factors_noise": "9",
-    "factors_traffic": "9",
-    "factors_greenZones": "4",
+    "factors_air": "10",
+    "factors_noise": "10",
+    "factors_traffic": "10",
+    "factors_greenZones": "0",
     "coords": ""
   },
   {
@@ -1423,10 +1423,10 @@
     "name": "просп. Мира",
     "lat": 50.051944,
     "lan": 72.956389,
-    "factors_air": "3",
+    "factors_air": "7",
     "factors_noise": "9",
-    "factors_traffic": "10",
-    "factors_greenZones": "3",
+    "factors_traffic": "7",
+    "factors_greenZones": "5",
     "coords": ""
   },
   {
@@ -1434,10 +1434,10 @@
     "name": "просп. Республики",
     "lat": 50.065556,
     "lan": 72.963611,
-    "factors_air": "4",
-    "factors_noise": "10",
-    "factors_traffic": "9",
-    "factors_greenZones": "2",
+    "factors_air": "7",
+    "factors_noise": "3",
+    "factors_traffic": "3",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -1511,10 +1511,10 @@
     "name": "Солнечный пер.",
     "lat": 50.041389,
     "lan": 72.981389,
-    "factors_air": "4",
-    "factors_noise": "6",
-    "factors_traffic": "4",
-    "factors_greenZones": "4",
+    "factors_air": "2",
+    "factors_noise": "2",
+    "factors_traffic": "2",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -1555,8 +1555,8 @@
     "name": "Темиртауская ул.",
     "lat": 50.055278,
     "lan": 72.939167,
-    "factors_air": "3",
-    "factors_noise": "5",
+    "factors_air": "1",
+    "factors_noise": "2",
     "factors_traffic": "3",
     "factors_greenZones": "9",
     "coords": ""
@@ -1621,10 +1621,10 @@
     "name": "ул. Ахмета Байтурсынулы",
     "lat": 50.058056,
     "lan": 72.953333,
-    "factors_air": "7",
+    "factors_air": "1",
     "factors_noise": "8",
     "factors_traffic": "7",
-    "factors_greenZones": "7",
+    "factors_greenZones": "9",
     "coords": ""
   },
   {
@@ -1636,6 +1636,17 @@
     "factors_noise": "9",
     "factors_traffic": "9",
     "factors_greenZones": "0",
+    "coords": ""
+  },
+  {
+    "id": 1776878432088,
+    "name": "5-й микрорайон",
+    "lat": 0,
+    "lan": 0,
+    "factors_air": "2",
+    "factors_noise": "2",
+    "factors_traffic": 0,
+    "factors_greenZones": 0,
     "coords": ""
   }
 ]
