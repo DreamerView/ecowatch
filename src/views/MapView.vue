@@ -21,6 +21,19 @@
         </small>
 
         <div class="card">
+            <label class="label">Об авторе</label>
+            <div class="author-card">
+              <div class="author-image">
+                <img loading="lazy" src="/avatar.jpeg" alt=""/>
+              </div>
+              <div class="author-content">
+                <h3 title="Абсейт Инкарим Валихановна">Абсеит Инкарим Валихановна</h3>
+                <a target="_blank" href="https://www.instagram.com/valihankyzy__/">Instagram</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="card">
           <label class="label">Режим отображения</label>
 
           <div class="mode-switch">
@@ -730,6 +743,44 @@ onBeforeUnmount(() => {
 
 * {
   box-sizing: border-box;
+}
+
+.author-card {
+  display: flex;
+  gap:1.5rem;
+  align-items: center;
+}
+
+.author-image {
+  width:5rem;
+  height:5rem;
+  background-color: var(--color-primary);
+  border-radius: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-image > img {
+  width:4.5rem;
+  height: 4.5rem;
+  border-radius: 100%;
+}
+
+.author-content {
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+  min-width: 0;
+}
+
+.author-content > * {
+  margin:0;
+}
+
+.author-content > a {
+  color:var(--color-primary)
 }
 
 .sidebar {
