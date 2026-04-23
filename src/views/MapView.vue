@@ -24,7 +24,7 @@
             <label class="label">Об авторе</label>
             <div class="author-card">
               <div class="author-image">
-                <img loading="lazy" src="/avatar.jpeg" alt=""/>
+                <img loading="lazy" src="/avatar-1.jpeg" alt=""/>
               </div>
               <div class="author-content">
                 <h3 title="Абсейт Инкарим Валихановна">Абсеит Инкарим Валихановна</h3>
